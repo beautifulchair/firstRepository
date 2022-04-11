@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>{{titele}}</title>
+    </head>
+    <body style="margin:50px">
+        <form method="post">
+            {% csrf_token %}
+            <p>delete {{ person.name }} ?</p>
+            <input type="submit" value="delete">
+        </form>
+    </body>
+</html>

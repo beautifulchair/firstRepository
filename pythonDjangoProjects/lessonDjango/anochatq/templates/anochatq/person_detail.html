@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{title}}</title>
+    </head>
+    <body style="margin:50px">
+        <p>about person</p>
+        <p>name: {{person.name}}</p>
+        <p>gender: {{person.gender}}<p>
+        <p>birthday: {{person.birthday}}</p>
+        <p>team: {% if person.team_set%} {{person.team_set}} {%else%} None{%endif%}</p>
+        <p><a href="{%url 'lessonsets:personlist'%}">back to personlist</a>
+        <p><a href="{%url 'lessonsets:deleteperson' person%}">delete</a>
+        <p><a href="{%url 'lessonsets:updateperson' person%}">update</a>
+    </body>
+</html>

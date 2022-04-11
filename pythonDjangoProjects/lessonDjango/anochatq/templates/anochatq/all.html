@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{title}}</title>
+    </head>
+    <body style="margin:50px">
+        <table border="1">
+            <tr>
+                <th>message</th>
+                <th>room</th>
+                <th>time</th>
+            </tr>
+            {% for x in message_list%}
+                <tr>
+                    <td>{{x.text}}</td>
+                    <td>{{x.room}}</td>
+                    <td>{{x.time}}</td>
+                </tr>
+            {% endfor%}
+        </table>
+    </body>
+</html>

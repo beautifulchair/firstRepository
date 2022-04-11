@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{title}}{{page_obj.number}}</title>
+    </head>
+    <body style="margin:50px">
+        <table border="1">
+            <tr>
+                <th>name</th>
+                <th>gender</th>
+                <th>birthday</th>
+            </tr>
+            {% for x in person_list%}
+                <tr>
+                    <td><a href="{%url 'lessonsets:person' x%}">{{x}}</a></td>
+                    <td>{{x.gender}}</td>
+                    <td>{{x.birthday}}</td>
+                </tr>
+            {% endfor%}
+            <p><a href="{%url 'lessonsets:createperson'%}">create new person</a></p>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul>
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}">
+                        <span>&laquo;</span>
+                    </a></li>
+                {% endif %}
+                {% for num in page_obj.paginator.page_range %}
+                    {% if num <= page_obj.number|add:5 and num >= page_obj.number|add:-5 %}
+                        {% if page_obj.number == num %}
+                            <li><a href="#">{{ num }}</a></li>
+                        {% else %}
+                            <li><a href="?page={{ num }}">{{ num }}</a></li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">
+                        &raquo;
+                    </a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </body>
+</html>

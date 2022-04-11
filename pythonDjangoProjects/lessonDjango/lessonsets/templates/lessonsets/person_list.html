@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{title}}</title>
+    </head>
+    <body style="margin:50px">
+        <table border="1">
+            <tr>
+                <th>name</th>
+                <th>gender</th>
+                <th>birthday</th>
+            </tr>
+            {% for x in person_list%}
+                <tr>
+                    <td><a href="{%url 'lessonsets:person' x%}">{{x}}</a></td>
+                    <td>{{x.gender}}</td>
+                    <td>{{x.birthday}}</td>
+                </tr>
+            {% endfor%}
+            <p><a href="{%url 'lessonsets:createperson'%}">create new person</a></p>
+        </table>
+    </body>
+</html>

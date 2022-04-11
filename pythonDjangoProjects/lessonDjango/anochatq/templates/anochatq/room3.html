@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{title}}</title>
+    </head>
+    <body style="margin:50px">
+        <table border="1">
+            <tr>
+                <th>{{title}}</th>
+            </tr>
+            {% for x in message_list%}
+                <tr>
+                    <td>{{x.text}}</td>
+                </tr>
+            {% endfor%}
+        </table>
+		<form method="post">{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="送信">
+		</form>
+
+    </body>
+</html>
